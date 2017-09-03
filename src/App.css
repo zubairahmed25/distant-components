@@ -13,6 +13,10 @@
   align-self: flex-end;
 }
 
+.login {
+  border: 3px gold solid;
+}
+
 .footer {
   border: 3px purple solid;
   height: 200px;
@@ -21,6 +25,14 @@
 
 .box {
   flex: 1;
+}
+
+.credit-card-application {
+  border: 3px hotpink solid;
+}
+
+.button {
+  background-color: green;
 }
 
 .main-content {

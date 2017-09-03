@@ -11,6 +11,17 @@ class App extends Component {
       loggedInAs: '',
       isCreditCardHolder: false,
     };
+
+    this.setLoggedInAs = this.setLoggedInAs.bind(this);
+    this.setIsCreditCardHolder = this.setIsCreditCardHolder.bind(this);
+  }
+
+  setLoggedInAs(name) {
+    this.setState({ loggedInAs: name });
+  }
+
+  setIsCreditCardHolder(value) {
+    this.setState({ isCreditCardHolder: value });
   }
 
   render() {
