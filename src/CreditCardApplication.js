@@ -6,11 +6,14 @@ export default class CreditCardApplication extends Component {
 
     return (
       <div className="credit-card-application">
-        {!isCreditCardHolder && <div>
-          <p>Hi {loggedInAs}, apply now!</p>
-          <p><button className="button">Yes, sign me up!</button></p>
+        {!loggedInAs && "Must log in first"}
+        {loggedInAs && <div>
+          {!isCreditCardHolder && <div>
+            <p>Hi {loggedInAs}, apply now!</p>
+            <p><button className="button">Yes, sign me up!</button></p>
+          </div>}
+          {isCreditCardHolder && "Thanks for signing up!"}
         </div>}
-        {isCreditCardHolder && "Thanks for signing up!"}
       </div>
     )
   }

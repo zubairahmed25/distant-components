@@ -33,6 +33,8 @@
 
 .button {
   background-color: green;
+  font-weight: bold;
+  color: white;
 }
 
 .main-content {
