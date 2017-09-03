@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setLoggedInAs } from './redux/reducer';
 
-export default class Login extends Component {
+class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loginName: ''
+    };
+
+    this.setLoginName = this.setLoginName.bind(this);
+  }
+
+  setLoginName(name) {
+    this.setState({ loginName: name });
+  }
 
   render() {
-    const { loggedInAs, isCreditCardHolder } = this.props;
+    const { loggedInAs, isCreditCardHolder, setLoggedInAs } = this.props;
 
     return (
       <div className="login">
         {!loggedInAs && <div>
-          Sign in as <input /> <button className="button">Go</button>
+          Sign in as <input onChange={(e) => this.setLoginName(e.target.value)} /> <button className="button" onClick={() => setLoggedInAs(this.state.loginName)}>Go</button>
         </div>}
         {loggedInAs && <div>
           Welcome, {loggedInAs}! {isCreditCardHolder && "(CC holder)"}
@@ -17,3 +31,16 @@ export default class Login extends Component {
     )
   }
 };
+
+const mapStateToProps = (state) => {
+  return {
+    loggedInAs: state.shared.loggedInAs,
+    isCreditCardHolder: state.shared.isCreditCardHolder
+  }
+};
+
+const mapDispatchToProps = {
+  setLoggedInAs: setLoggedInAs
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
