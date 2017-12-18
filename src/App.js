@@ -25,9 +25,11 @@ class App extends Component {
   }
 
   render() {
+    const { loggedInAs, isCreditCardHolder } = this.state;
+
     return (
       <div className="App">
-        <Header />
+        <Header loggedInAs={loggedInAs} isCreditCardHolder={isCreditCardHolder} setLoggedInAs={this.setLoggedInAs} />
         <MainContent />
         <Footer />
       </div>
