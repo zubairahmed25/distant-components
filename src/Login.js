@@ -17,13 +17,14 @@ class Login extends Component {
   }
 
   render() {
-    const { loggedInAs, isCreditCardHolder, dispatch } = this.props;
+    const { loggedInAs, isCreditCardHolder, logInAs } = this.props;
+    console.log('this.props.dispatch', this.props.dispatch);
 
     return (
       <div className="login">
         {!loggedInAs && <div>
           Log in as <input onChange={(e) => this.updateLoginName(e.target.value)} /> <button className="button"
-            onClick={() => dispatch(logInAs(this.state.loginName))}
+            onClick={() => logInAs(this.state.loginName)}
           >Go</button>
         </div>}
         {loggedInAs && <div>
@@ -41,7 +42,9 @@ const mapStateToProps = state => {
   }
 };
 
-
+const mapDispatchToProps = {
+  logInAs: logInAs,
+};
 
 // This set of lines...
 // const connector = connect(mapStateToProps);
@@ -49,4 +52,4 @@ const mapStateToProps = state => {
 // export default connectedLogin;
 
 // ... does the same thing as this. This is more common to see.
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

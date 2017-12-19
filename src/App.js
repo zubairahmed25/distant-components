@@ -3,6 +3,8 @@ import Header from './Header';
 import MainContent from './MainContent';
 import Footer from './Footer';
 import './App.css';
+console.log('Defaulting', Defaulting);
+console.log('Destructuring', Destructuring);
 
 class App extends Component {
   render() {
