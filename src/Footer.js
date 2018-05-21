@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CreditCardApplication from './CreditCardApplication';
 
+
 export default class Footer extends Component {
   render() {
     return (
@@ -8,7 +9,11 @@ export default class Footer extends Component {
         <div className="box" />
         <div className="box" />
         <div className="box">
-          <CreditCardApplication />
+          <CreditCardApplication
+            loggedInAs={this.props.loggedInAs}
+            isCreditCardHolder={this.props.isCreditCardHolder}
+            setIsCreditCardHolder={this.props.setIsCreditCardHolder}
+          />
         </div>
         <div className="box" />
       </div>

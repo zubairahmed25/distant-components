@@ -38,7 +38,6 @@ const mapStateToProps = storeData => {
   };
 };
 
-
-
-// ... or 1 line like this:
-export default connect(mapStateToProps)(Login);
+const connector = connect(mapStateToProps);
+const ConnectedLogin = connector(Login);
+export default ConnectedLogin;
